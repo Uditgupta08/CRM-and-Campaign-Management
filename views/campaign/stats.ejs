@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campaign Statistics</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        text-align: center;
+        color: #4caf50;
+        margin-top: 30px;
+      }
+
+      table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: center;
+        border: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      td {
+        background-color: #fff;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      tr:hover {
+        background-color: #f1f1f1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Campaign Statistics for Audience <%= audience_id %></h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Total Audience Size</th>
+          <th>Messages Sent</th>
+          <th>Messages Failed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= stats.total_sent %></td>
+          <td><%= stats.sent_count %></td>
+          <td><%= stats.failed_count %></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

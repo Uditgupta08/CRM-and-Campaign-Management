@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Communication Logs</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+      h1 {
+        text-align: center;
+        color: #4caf50;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #fff;
+        border-bottom: 2px solid #ddd;
+      }
+      table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+      th {
+        background-color: #4caf50;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      tr:hover {
+        background-color: #f1f1f1;
+      }
+      a {
+        text-decoration: none;
+        color: #4caf50;
+        font-weight: bold;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .send-btn {
+        display: block;
+        width: 200px;
+        margin: 20px auto;
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      .send-btn:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Communication Logs</h1>
+    <a href="/communication/send" class="send-btn">Send Message</a>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Log ID</th>
+          <th>Customer ID</th>
+          <th>Message</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% logs.forEach(log => { %>
+        <tr>
+          <td><%= log.log_id %></td>
+          <td><%= log.customer_id %></td>
+          <td><%= log.message %></td>
+          <td><%= log.status %></td>
+          <td>
+            <a href="/communication/log/<%= log.log_id %>">View Details</a>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>

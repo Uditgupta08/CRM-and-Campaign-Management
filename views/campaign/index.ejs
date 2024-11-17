@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campaign History & Stats</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+      h1 {
+        text-align: center;
+        color: #4caf50;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #fff;
+        border-bottom: 2px solid #ddd;
+      }
+      a {
+        color: #4caf50;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      th {
+        background-color: #f2f2f2;
+        color: #4caf50;
+      }
+      tr:hover {
+        background-color: #f9f9f9;
+      }
+      .create-campaign-link {
+        display: inline-block;
+        margin: 20px 0;
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        text-align: center;
+        width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .create-campaign-link:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Past Campaigns</h1>
+    <a href="/campaign/new" class="create-campaign-link">Create New Campaign</a>
+    <table>
+      <thead>
+        <tr>
+          <th>Campaign Name</th>
+          <th>Segment Name</th>
+          <th>Sent Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% campaigns.forEach((campaign) => { %>
+        <tr>
+          <td><%= campaign.name %></td>
+          <td><%= campaign.audienceName || "N/A" %></td>
+          <td><%= new Date(campaign.sent_date).toLocaleString() %></td>
+          <td>
+            <a href="/campaign/<%= campaign.campaign_id %>">View Details</a>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </body>
+</html>

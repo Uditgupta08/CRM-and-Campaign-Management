@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Communication Log Detail</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+      header {
+        text-align: center;
+        background-color: #4caf50;
+        color: white;
+        padding: 20px;
+      }
+      h1 {
+        margin: 0;
+      }
+      main {
+        width: 60%;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      p {
+        font-size: 1rem;
+        margin-bottom: 15px;
+      }
+      strong {
+        color: #4caf50;
+      }
+      a {
+        display: block;
+        text-align: center;
+        padding: 10px 20px;
+        margin-top: 20px;
+        text-decoration: none;
+        background-color: #4caf50;
+        color: white;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        transition: background-color 0.3s ease;
+      }
+      a:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Communication Log Details</h1>
+    </header>
+    <main>
+      <% if (log) { %>
+      <p><strong>Log ID:</strong> <%= log.log_id %></p>
+      <p><strong>Customer Name:</strong> <%= log.customer_name || "N/A" %></p>
+      <p><strong>Message:</strong> <%= log.message %></p>
+      <p><strong>Status:</strong> <%= log.status %></p>
+      <% } else { %>
+      <p>No details available for this log.</p>
+      <% } %>
+      <a href="/communication">Back to Communication Logs</a>
+    </main>
+  </body>
+</html>

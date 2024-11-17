@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        text-align: center;
+        color: #4caf50;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #fff;
+        border-bottom: 2px solid #ddd;
+      }
+      p {
+        text-align: center;
+        font-size: 1.2rem;
+        margin: 0 0 20px;
+      }
+      a {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px;
+        text-decoration: none;
+        background-color: #4caf50;
+        color: white;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 1.1rem;
+        transition: background-color 0.3s ease;
+      }
+      a:hover {
+        background-color: #45a049;
+      }
+      .user-info {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .auth-links {
+        text-align: center;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to the CRM</h1>
+    <% if (user) { %>
+    <div class="user-info">
+      <p>Hello, <%= user.displayName %>!</p>
+      <p>Email: <%= user.emails[0].value %></p>
+      <a href="/logout">Logout</a>
+    </div>
+    <% } else { %>
+    <div class="auth-links">
+      <a href="/auth/google">Login with Google</a>
+    </div>
+    <% } %>
+  </body>
+</html>
